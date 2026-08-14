@@ -1,0 +1,29 @@
+{
+  "name": "governor",
+  "version": "0.1.0",
+  "description": "BBR-style pacing controller for capital deployment \u2014 models the budget ceiling instead of crashing into it",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "start": "node src/runner.js",
+    "paper": "MODE=paper node src/runner.js"
+  },
+  "keywords": [
+    "congestion-control",
+    "bbr",
+    "budget",
+    "pacing",
+    "agents",
+    "risk"
+  ],
+  "author": "jadonamite",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@gensyn-ai/gensyn-delphi-sdk": "^2.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jadonamite/governor.git"
+  }
+}
