@@ -1,3 +1,8 @@
 node_modules/
 logs/
 .env
+WALLET_ADDRESS.txt
+
+# Vault docs — strategy, verification log, handover.
+# This repo is a PUBLIC remote and the competition keeps strategy private.
+docs/
