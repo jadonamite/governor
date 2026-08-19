@@ -19,6 +19,7 @@ import * as carbonIntensity from './carbon-intensity.js';
 import * as noaaBuoy from './noaa-buoy.js';
 import * as federalRegister from './federal-register.js';
 import * as noaaTide from './noaa-tide.js';
+import * as treasuryYield from './treasury-yield.js';
 
 // crypto-close is DELIBERATELY NOT REGISTERED.
 //
@@ -33,7 +34,7 @@ import * as noaaTide from './noaa-tide.js';
 // administrative feed yields information the market has not already priced.
 // The file is kept for reference; do not re-register it without a real
 // informational edge over consensus.
-const REGISTRY = [usgsGauge, wikipediaPageviews, carbonIntensity, noaaBuoy, federalRegister, noaaTide];
+const REGISTRY = [usgsGauge, wikipediaPageviews, carbonIntensity, noaaBuoy, federalRegister, noaaTide, treasuryYield];
 
 /**
  * @returns {Promise<{probs:number[], source:string, note?:string}|null>}

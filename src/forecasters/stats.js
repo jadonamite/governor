@@ -68,3 +68,22 @@ export function pAbove(threshold, projected, sigma) {
 export function clamp01(p, floor = 0.02) {
   return Math.min(1 - floor, Math.max(floor, p));
 }
+
+/**
+ * Same retry policy as `fetchRetry`, but returns the raw body. Treasury
+ * publishes the yield curve as an Atom feed, not JSON.
+ */
+export async function fetchRetryText(url, { attempts = 3, timeoutMs = 45_000, headers } = {}) {
+  let lastErr;
+  for (let i = 0; i < attempts; i++) {
+    try {
+      const res = await fetch(url, { signal: AbortSignal.timeout(timeoutMs), headers });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return await res.text();
+    } catch (e) {
+      lastErr = e;
+      if (i < attempts - 1) await new Promise((r) => setTimeout(r, 1500 * (i + 1)));
+    }
+  }
+  throw lastErr;
+}
